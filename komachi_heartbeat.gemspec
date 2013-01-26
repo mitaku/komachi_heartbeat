@@ -7,15 +7,15 @@ require "komachi_heartbeat/version"
 Gem::Specification.new do |s|
   s.name        = "komachi_heartbeat"
   s.version     = KomachiHeartbeat::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of KomachiHeartbeat."
-  s.description = "TODO: Description of KomachiHeartbeat."
+  s.authors     = ["Takumi MIURA"]
+  s.email       = ["mitaku1104@gmail.com"]
+  s.homepage    = "https://github.com/mitaku/komachi_heartbeat"
+  s.summary     = "Rails Application Hertbeat Check Engine."
+  s.description = "Alive Monitoring of Application Server and DB Server."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 3.2.9"
+  s.add_dependency "rails", "~> 3.2.11"
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
