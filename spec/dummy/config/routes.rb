@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount KomachiHeartbeat::Engine => "/komachi_heartbeat"
+  mount KomachiHeartbeat::Engine => "/opt"
 end
