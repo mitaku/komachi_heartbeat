@@ -60,6 +60,9 @@ module Dummy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.komachi_heartbeat.application_version = "1.0.0"
+    config.komachi_heartbeat.application_name = "Dummy App"
   end
 end
 
