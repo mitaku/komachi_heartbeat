@@ -6,8 +6,13 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 ### 死活監視
 `/MOUNT_PATH/heartbeat`
 
-schema_migrationsテーブルへのクエリを発行する
-問題がなければ200 OKを返す
+アプリケーションの状態に問題がなければ200 OKを返す
+
+#### チェック可能項目
+- Web
+- DB
+- Redis
+- Memcached
 
 ### バージョン確認
 `/MOUNT_PATH/version`
@@ -23,9 +28,30 @@ schema_migrationsテーブルへのクエリを発行する
   `mount KomachiHeartbeat::Engine => "/ops"`
 
 ## Configure
+### Parameters
+- `application_version`
+- `application_name`
+- `db_check_enabled`
+ - DBのチェックを行うかどうか
+ - default: true
+- `database_class_names`
+ - DBのチェックに利用するクラス名の配列
+ - default: ["ActiveRecord::Base"]
+- `redis_check_enabled`
+ - Redisをチェックするかどうか
+ - default: false
+- `memcached_check_enabled`
+ - Memcachedをチェックするかどうか
+ - default: false
+- `memcached_server`
+ - Memcachedのサーバー名
+ - default: 'localhost'
+
+### Example
+
 ```
-Rails.application.config.komachi_heartbeat.application_name = "YOUR APP NAME"
-Rails.application.config.komachi_heartbeat.application_version = "YOUR APP version"
+Rails.application.config.heartbeat.application_name = "YOUR APP NAME"
+Rails.application.config.heartbeat.application_version = "YOUR APP version"
 ```
 
 This project rocks and uses MIT-LICENSE.

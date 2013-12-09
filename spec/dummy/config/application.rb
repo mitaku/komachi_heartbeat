@@ -4,7 +4,6 @@ require File.expand_path('../boot', __FILE__)
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -61,8 +60,12 @@ module Dummy
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.komachi_heartbeat.application_version = "1.0.0"
-    config.komachi_heartbeat.application_name = "Dummy App"
+    config.heartbeat.application_version = "1.0.0"
+    config.heartbeat.application_name = "Dummy App"
+    config.heartbeat.db_check_enabled = false
+    config.heartbeat.redis_check_enabled = true
+    config.heartbeat.memcached_check_enabled = true
+    config.heartbeat.memcached_server = "localhost1"
   end
 end
 

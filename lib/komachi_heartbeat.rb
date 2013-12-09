@@ -1,5 +1,8 @@
+require "komachi_heartbeat/config"
 require "komachi_heartbeat/engine"
 
 module KomachiHeartbeat
-  mattr_accessor :application_version, :application_name
+  def self.config
+    KomachiHeartbeat::Config.config
+  end
 end
