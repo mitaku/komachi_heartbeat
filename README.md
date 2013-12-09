@@ -54,4 +54,6 @@ Rails.application.config.heartbeat.application_name = "YOUR APP NAME"
 Rails.application.config.heartbeat.application_version = "YOUR APP version"
 ```
 
+see [https://github.com/mitaku/komachi_heartbeat/blob/master/spec/dummy/config/application.rb]
+
 This project rocks and uses MIT-LICENSE.
