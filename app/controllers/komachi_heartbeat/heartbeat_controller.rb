@@ -2,12 +2,17 @@ require_dependency "komachi_heartbeat/application_controller"
 
 module KomachiHeartbeat
   class HeartbeatController < ApplicationController
-    def index
-      db_connection_check if db_check?
-      redis_connection_check if redis_check?
-      memcached_connection_check if memcached_check?
 
-      head :ok
+    def index
+      begin
+        db_connection_check if db_check?
+        redis_connection_check if redis_check?
+        memcached_connection_check if memcached_check?
+
+        head :ok
+      rescue => e
+        head :internal_server_error
+      end
     end
 
     def version
@@ -17,11 +22,10 @@ module KomachiHeartbeat
     end
 
     private
-    def redis_connection_check
-      c = Redis::Client.new
-      c.connect
-      raise "Redis connection failed" unless c.connected?
-      c.disconnect
+
+    # ---- Database
+    def db_check?
+      !!KomachiHeartbeat.config.db_check_enabled
     end
 
     def db_connection_check
@@ -30,28 +34,38 @@ module KomachiHeartbeat
       end
     end
 
-    def memcached_connection_check
-      MemCache.new(memcached_server_name).stats
+    def connection_database_class_names
+      KomachiHeartbeat.config.database_class_names.presence || []
     end
 
-    def memcached_check?
-      defined?(MemCache) && !!KomachiHeartbeat.config.memcached_check_enabled
-    end
-
-    def db_check?
-      !!KomachiHeartbeat.config.db_check_enabled
-    end
-
+    # ---- Redis
     def redis_check?
       defined?(Redis) && !!KomachiHeartbeat.config.redis_check_enabled
     end
 
-    def connection_database_class_names
-      KomachiHeartbeat.config.database_class_names.presence || ["ActiveRecord::Base"]
+    def redis_connection_check
+      redis_servers.each do |hash|
+        Redis.new(hash).ping
+      end
     end
 
-    def memcached_server_name
-      KomachiHeartbeat.config.memcached_server
+    def redis_servers
+      KomachiHeartbeat.config.redis_servers.presence || []
+    end
+
+    # ---- Memcached
+    def memcached_server_names
+      KomachiHeartbeat.config.memcached_server_names.presence || []
+    end
+
+    def memcached_connection_check
+      memcached_server_names.each do |memcached_server_name|
+        MemCache.new(memcached_server_name).stats
+      end
+    end
+
+    def memcached_check?
+      defined?(MemCache) && !!KomachiHeartbeat.config.memcached_check_enabled
     end
 
     def application_name

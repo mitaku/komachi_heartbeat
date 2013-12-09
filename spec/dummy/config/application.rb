@@ -9,6 +9,8 @@ require "sprockets/railtie"
 
 Bundler.require
 require "komachi_heartbeat"
+require "redis"
+require "memcache"
 
 module Dummy
   class Application < Rails::Application
@@ -64,8 +66,9 @@ module Dummy
     config.heartbeat.application_name = "Dummy App"
     config.heartbeat.db_check_enabled = false
     config.heartbeat.redis_check_enabled = true
+    config.heartbeat.redis_servers = [{host: "localhost"}, {host: "localhost", port: 7777}]
     config.heartbeat.memcached_check_enabled = true
-    config.heartbeat.memcached_server = "localhost1"
+    config.heartbeat.memcached_server_names = ["localhost", "hoge123"]
   end
 end
 
