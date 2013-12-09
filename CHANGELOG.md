@@ -1,5 +1,10 @@
 # KomachiHeartbeat
 
+## v2.1.0
+- 複数のサーバーの監視
+ - Redis
+ - Memcached
+
 ## v2.0.0
 - Redisの監視に対応
 - Memcachedの監視に対応

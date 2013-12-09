@@ -40,12 +40,15 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 - `redis_check_enabled`
  - Redisをチェックするかどうか
  - default: false
+- `redis_servers`
+ - Redisのサーバー情報
+ - default: [{host: "localhost", port: 6379, db: 0}]
 - `memcached_check_enabled`
  - Memcachedをチェックするかどうか
  - default: false
-- `memcached_server`
- - Memcachedのサーバー名
- - default: 'localhost'
+- `memcached_server_names`
+ - Memcachedのサーバー名の配列
+ - default: ['localhost']
 
 ### Example
 
