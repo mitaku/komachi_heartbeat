@@ -9,7 +9,7 @@ module KomachiHeartbeat
         redis_connection_check if redis_check?
         memcached_connection_check if memcached_check?
 
-        head :ok
+        render text: "ok", status: 200
       rescue => e
         head :internal_server_error
       end
