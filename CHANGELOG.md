@@ -1,5 +1,8 @@
 # KomachiHeartbeat
 
+## v2.1.3
+- Redisのコネクションを明示的に切るように修正
+
 ## v2.1.2
 - heartbeat成功時のメッセージの修正
 

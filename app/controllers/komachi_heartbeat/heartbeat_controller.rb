@@ -45,7 +45,9 @@ module KomachiHeartbeat
 
     def redis_connection_check
       redis_servers.each do |hash|
-        Redis.new(hash).ping
+        redis = Redis.new(hash)
+        redis.ping
+        redis.quit
       end
     end
 
