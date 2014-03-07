@@ -62,7 +62,9 @@ module KomachiHeartbeat
 
     def memcached_connection_check
       memcached_server_names.each do |memcached_server_name|
-        MemCache.new(memcached_server_name).stats
+        memcache = MemCache.new(memcached_server_name)
+        memcache.stats
+        memcache.reset
       end
     end
 
