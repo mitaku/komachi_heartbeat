@@ -1,5 +1,8 @@
 # KomachiHeartbeat
 
+## v2.1.4
+- MemCachedのコネクションを明示的に切るように修正 (#1 _@gussan_)
+
 ## v2.1.3
 - Redisのコネクションを明示的に切るように修正
 
