@@ -1,3 +1,5 @@
+require_dependency "komachi_heartbeat/application_controller"
+
 module KomachiHeartbeat
   class StatsController < ApplicationController
     def worker
