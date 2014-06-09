@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.2
+gemfile:
+  - gemfiles/rails3_2.gemfile
+  - gemfiles/rails4_0.gemfile
+  - gemfiles/rails4_1.gemfile
+script: bundle exec rspec
+branches:
+  only:
+    - master
+notifications:
+  email: false
