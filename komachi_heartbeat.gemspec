@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Takumi MIURA"]
   s.email       = ["mitaku1104@gmail.com"]
   s.homepage    = "https://github.com/mitaku/komachi_heartbeat"
-  s.summary     = "Rails Application Hertbeat Check Engine."
+  s.summary     = "Rails Application Heartbeat Check Engine."
   s.description = "Alive Monitoring of Application Server and DB Server."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
