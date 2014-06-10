@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-require 'spec_helper'
-
-describe KomachiHeartbeat::HeartbeatController do
+describe KomachiHeartbeat::HeartbeatController, type: :controller do
   describe "GET version" do
     before { get "version", :use_route => 'ops' }
     subject { response }
@@ -17,7 +15,17 @@ describe KomachiHeartbeat::HeartbeatController do
   end
 
   describe "GET index" do
-    before { get "index", :use_route => 'ops' }
+    before do
+      # setup
+      # `memcache_mock` does not support stats and reset
+      mock_memcache = double("MemCache")
+      allow(mock_memcache).to receive(:stats)
+      allow(mock_memcache).to receive(:reset)
+      allow(MemCache).to receive(:new){ mock_memcache }
+
+      # exercise
+      get "index", :use_route => 'ops'
+    end
     subject { response }
     it { should be_success }
   end

@@ -3,16 +3,18 @@ require_dependency "komachi_heartbeat/application_controller"
 module KomachiHeartbeat
   class HeartbeatController < ApplicationController
 
-    def index
-      begin
-        db_connection_check if db_check?
-        redis_connection_check if redis_check?
-        memcached_connection_check if memcached_check?
-
-        render text: "heartbeat:ok", status: 200
-      rescue => e
+    unless Rails.env.test?
+      rescue_from Exception do |exception|
         head :internal_server_error
       end
+    end
+
+    def index
+      db_connection_check if db_check?
+      redis_connection_check if redis_check?
+      memcached_connection_check if memcached_check?
+
+      render text: "heartbeat:ok", status: 200
     end
 
     def version
