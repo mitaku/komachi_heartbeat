@@ -24,6 +24,16 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 
 アプリ名・バージョンを取得する
 
+### WorkerのQueue監視
+`/MOUNT_PATH/stats/worker`
+
+- enqueued (処理待ちのQueueの数)
+- processed (完了したQueueの数)
+
+を返す
+
+[Sidekiq](https://github.com/mperham/sidekiq) と [Resque](https://github.com/resque/resque) に対応しています。
+
 ## Usage
 
 1. write Gemfile
@@ -54,6 +64,9 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 - `memcached_server_names`
  - Memcachedのサーバー名の配列
  - default: ['localhost']
+- `worker_stats_enabled`
+ - WorkerのQueueの数をチェックするかどうか
+ - default: false
 
 ### Example
 
