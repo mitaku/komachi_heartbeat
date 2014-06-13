@@ -70,6 +70,7 @@ module Dummy
     config.heartbeat.redis_servers = [{host: "localhost"}, {host: "localhost", port: 7777}]
     config.heartbeat.memcached_check_enabled = true
     config.heartbeat.memcached_server_names = ["localhost", "hoge123"]
+    config.heartbeat.worker_stats_enabled = true
   end
 end
 
