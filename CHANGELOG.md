@@ -1,5 +1,10 @@
 # KomachiHeartbeat
 
+## v2.1.7
+- remove unnecessary assets (#7 _@tkeo_)
+- support travis (#5 _@sue445_)
+- update readme (#4 #6 _@sue445_)
+
 ## v2.1.4
 - MemCachedのコネクションを明示的に切るように修正 (#1 _@gussan_)
 
