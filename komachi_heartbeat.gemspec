@@ -17,10 +17,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 3.2.11"
   s.add_dependency "redis"
-  s.add_dependency "memcache-client"
 
   # s.add_dependency "jquery-rails"
 
+  s.add_development_dependency "memcache-client"
+  s.add_development_dependency "dalli"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails", "~> 3.0.1"
   s.add_development_dependency "rspec-its"
