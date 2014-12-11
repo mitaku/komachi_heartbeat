@@ -64,14 +64,20 @@ module KomachiHeartbeat
 
     def memcached_connection_check
       memcached_server_names.each do |memcached_server_name|
-        memcache = MemCache.new(memcached_server_name)
-        memcache.stats
-        memcache.reset
+        if defined?(MemCache)
+          memcache = MemCache.new(memcached_server_name)
+          memcache.stats
+          memcache.reset
+        elsif defined?(Dalli::Client)
+          memcache = Dalli::Client.new(memcached_server_name)
+          memcache.alive!
+          memcache.reset
+        end
       end
     end
 
     def memcached_check?
-      defined?(MemCache) && !!KomachiHeartbeat.config.memcached_check_enabled
+      (defined?(MemCache) || defined?(Dalli::Client)) && !!KomachiHeartbeat.config.memcached_check_enabled
     end
 
     def application_name
