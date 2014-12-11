@@ -1,5 +1,8 @@
 # KomachiHeartbeat
 
+## v2.1.8
+- support [Dalli](https://github.com/mperham/dalli) (#8 _@askelof_)
+
 ## v2.1.7
 - remove unnecessary assets (#7 _@tkeo_)
 - support travis (#5 _@sue445_)
