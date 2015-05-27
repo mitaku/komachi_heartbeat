@@ -1,4 +1,5 @@
 # KomachiHeartbeat
+[![Gem Version](https://badge.fury.io/rb/komachi_heartbeat.svg)](http://badge.fury.io/rb/komachi_heartbeat)
 [![Build Status](https://api.travis-ci.org/mitaku/komachi_heartbeat.svg?branch=master)](https://travis-ci.org/mitaku/komachi_heartbeat)
 
 ## About
