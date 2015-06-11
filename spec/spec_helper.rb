@@ -9,6 +9,7 @@ Spork.prefork do
   require 'rspec/its'
   require 'pry'
   require 'mock_redis'
+  require 'ostruct'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
