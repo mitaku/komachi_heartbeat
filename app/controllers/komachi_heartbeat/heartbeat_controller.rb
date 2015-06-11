@@ -18,7 +18,7 @@ module KomachiHeartbeat
     end
 
     def version
-      obj = {:name => application_name, :version => application_version, :access => DateTime.now}
+      obj = {:name => application_name, :version => application_version, :revision => revision, :access => DateTime.now}
 
       render json: obj
     end
@@ -86,6 +86,17 @@ module KomachiHeartbeat
 
     def application_version
       KomachiHeartbeat.config.application_version
+    end
+
+    def revision
+      file = KomachiHeartbeat.config.revision_path
+      file = file.call if file.is_a?(Proc)
+      file = Pathname.new(file) unless file.is_a?(Pathname)
+      if file.exist?
+        file.read.chomp
+      else
+        "UNKNOWN"
+      end
     end
   end
 end

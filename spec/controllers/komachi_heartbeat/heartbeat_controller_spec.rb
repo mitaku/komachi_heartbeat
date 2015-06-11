@@ -11,6 +11,7 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       subject { OpenStruct.new(JSON.load(response.body)) }
       its(:name) { should == "Dummy App"}
       its(:version) { should == "1.0.0"}
+      its(:revision) { should == "deadbeaf" }
     end
   end
 

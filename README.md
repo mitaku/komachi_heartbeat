@@ -24,7 +24,7 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 ### バージョン確認
 `/MOUNT_PATH/version`
 
-アプリ名・バージョンを取得する
+アプリ名・バージョン・REVISION を取得する
 
 ### WorkerのQueue監視
 `/MOUNT_PATH/stats/worker`
@@ -69,6 +69,9 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 - `worker_stats_enabled`
  - WorkerのQueueの数をチェックするかどうか
  - default: false
+- `revision_path`
+ - REVISION ファイルの位置
+ - default: `-> { Rails.root.join("REVISION") }`
 
 ### Example
 
