@@ -1,5 +1,8 @@
 # KomachiHeartbeat
 
+## v2.1.9
+- REVISIONをAPIで返せるように機能追加 (#9 _@onk_)
+
 ## v2.1.8
 - support [Dalli](https://github.com/mperham/dalli) (#8 _@askelof_)
 
