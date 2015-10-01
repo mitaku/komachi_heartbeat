@@ -58,13 +58,13 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
  - Redisをチェックするかどうか
  - default: false
 - `redis_servers`
- - Redisのサーバー情報
+ - Redisサーバーへの接続情報のハッシュの配列
  - default: [{host: "localhost", port: 6379, db: 0}]
 - `memcached_check_enabled`
  - Memcachedをチェックするかどうか
  - default: false
 - `memcached_server_names`
- - Memcachedのサーバー名の配列
+ - Memcachedのサーバー名、接続ポート(省略時はデフォルトポート)をつなげた文字列の配列 e.g. ['one.example.com:11211', 'two.example.com:11211']
  - default: ['localhost']
 - `worker_stats_enabled`
  - WorkerのQueueの数をチェックするかどうか
