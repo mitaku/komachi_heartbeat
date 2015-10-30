@@ -1,5 +1,9 @@
 # KomachiHeartbeat
 
+## v2.2.0
+- document修正 (#12 _@shishi_)
+- Postgresqlでも動作するようにMySQL-style backticksの削除 (#9 _@askelof_)
+
 ## v2.1.9
 - REVISIONをAPIで返せるように機能追加 (#9 _@onk_)
 
