@@ -25,9 +25,18 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       allow(MemCache).to receive(:new){ mock_memcache }
 
       # exercise
-      get "index", :use_route => 'ops'
+      get "index", params
     end
+
+    let(:params) { { use_route: 'ops', format: format } }
+
     subject { response }
-    it { should be_success }
+
+    context "When default format" do
+      let(:format) { nil }
+
+      it { should be_success }
+      its(:body) { should eq "heartbeat:ok" }
+    end
   end
 end
