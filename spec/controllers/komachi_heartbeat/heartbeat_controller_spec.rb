@@ -38,5 +38,15 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       it { should be_success }
       its(:body) { should eq "heartbeat:ok" }
     end
+
+    context "When svg format" do
+      let(:format) { "svg" }
+
+      it { should be_success }
+
+      # NOTE: can not get response body...
+      its(:body) { should eq "" }
+      its(:content_type) { should eq "image/svg+xml" }
+    end
   end
 end
