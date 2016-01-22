@@ -16,6 +16,8 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
   end
 
   describe "GET index" do
+    render_views
+
     before do
       # setup
       # `memcache_mock` does not support stats and reset
@@ -44,8 +46,7 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
 
       it { should be_success }
 
-      # NOTE: can not get response body...
-      its(:body) { should eq "" }
+      its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
       its(:content_type) { should eq "image/svg+xml" }
     end
   end
