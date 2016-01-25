@@ -63,7 +63,10 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
         let(:format) { nil }
 
         its(:status) { should eq 500 }
-        its(:body) { should eq " " }
+
+        # NOTE: Rails 3.2~4.1 is " "
+        #   Rails 4.2+ is ""
+        its(:body) { should match /^[ ]*$/ }
       end
 
       context "When svg format" do
