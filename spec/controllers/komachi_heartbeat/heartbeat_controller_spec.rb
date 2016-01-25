@@ -49,6 +49,30 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
         it { should be_success }
 
         its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
+        its(:body) { should include '<text x="80" y="13">ok</text>' }
+        its(:content_type) { should eq "image/svg+xml" }
+      end
+    end
+
+    context "When error is occurred" do
+      before do
+        allow(controller).to receive(:db_check?) { raise "something wrong!" }
+      end
+
+      context "When default format" do
+        let(:format) { nil }
+
+        its(:status) { should eq 500 }
+        its(:body) { should eq " " }
+      end
+
+      context "When svg format" do
+        let(:format) { "svg" }
+
+        it { should be_success }
+
+        its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
+        its(:body) { should include '<text x="80" y="13">NG</text>' }
         its(:content_type) { should eq "image/svg+xml" }
       end
     end

@@ -5,15 +5,13 @@ module KomachiHeartbeat
     RED   = "#e05d44"
     GREEN = "#4c1"
 
-    unless Rails.env.test?
-      rescue_from Exception do |exception|
-        @message = "NG"
-        @badge_color = RED
+    rescue_from Exception do |exception|
+      @message = "NG"
+      @badge_color = RED
 
-        respond_to do |format|
-          format.svg { render :index }
-          format.any { head :internal_server_error }
-        end
+      respond_to do |format|
+        format.svg { render :index }
+        format.any { head :internal_server_error }
       end
     end
 
