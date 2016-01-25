@@ -25,29 +25,32 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       allow(mock_memcache).to receive(:stats)
       allow(mock_memcache).to receive(:reset)
       allow(MemCache).to receive(:new){ mock_memcache }
+    end
 
+    subject do
       # exercise
       get "index", params
+      response
     end
 
     let(:params) { { use_route: 'ops', format: format } }
 
-    subject { response }
+    context "When successful" do
+      context "When default format" do
+        let(:format) { nil }
 
-    context "When default format" do
-      let(:format) { nil }
+        it { should be_success }
+        its(:body) { should eq "heartbeat:ok" }
+      end
 
-      it { should be_success }
-      its(:body) { should eq "heartbeat:ok" }
-    end
+      context "When svg format" do
+        let(:format) { "svg" }
 
-    context "When svg format" do
-      let(:format) { "svg" }
+        it { should be_success }
 
-      it { should be_success }
-
-      its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
-      its(:content_type) { should eq "image/svg+xml" }
+        its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
+        its(:content_type) { should eq "image/svg+xml" }
+      end
     end
   end
 end
