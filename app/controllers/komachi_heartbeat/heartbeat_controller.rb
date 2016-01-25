@@ -26,7 +26,7 @@ module KomachiHeartbeat
       @badge_color = GREEN
 
       respond_to do |format|
-        format.svg
+        format.svg { }
         format.any { render text: "heartbeat:ok", status: 200 }
       end
     end
