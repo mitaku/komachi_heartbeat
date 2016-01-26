@@ -2,10 +2,16 @@ require_dependency "komachi_heartbeat/application_controller"
 
 module KomachiHeartbeat
   class HeartbeatController < ApplicationController
+    RED   = "#e05d44"
+    GREEN = "#4c1"
 
-    unless Rails.env.test?
-      rescue_from Exception do |exception|
-        head :internal_server_error
+    rescue_from Exception do |exception|
+      @message = "NG"
+      @badge_color = RED
+
+      respond_to do |format|
+        format.svg { render :index }
+        format.any { head :internal_server_error }
       end
     end
 
@@ -14,7 +20,13 @@ module KomachiHeartbeat
       redis_connection_check if redis_check?
       memcached_connection_check if memcached_check?
 
-      render text: "heartbeat:ok", status: 200
+      @message = "ok"
+      @badge_color = GREEN
+
+      respond_to do |format|
+        format.svg { }
+        format.any { render text: "heartbeat:ok", status: 200 }
+      end
     end
 
     def version
