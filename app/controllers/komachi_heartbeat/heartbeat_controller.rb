@@ -25,7 +25,7 @@ module KomachiHeartbeat
 
       respond_to do |format|
         format.svg { }
-        format.any { render text: "heartbeat:ok", status: 200 }
+        format.any { render plain: "heartbeat:ok", status: 200 }
       end
     end
 
