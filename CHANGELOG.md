@@ -1,5 +1,9 @@
 # KomachiHeartbeat
 
+## Master
+- Rails5のduplication warning対応
+- Railsのサポートバージョンを4.1以上にする
+
 ## v2.2.0
 - document修正 (#12 _@shishi_)
 - Postgresqlでも動作するようにMySQL-style backticksの削除 (#9 _@askelof_)
