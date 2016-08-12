@@ -1,6 +1,8 @@
 # KomachiHeartbeat
 
 ## Master
+
+## v2.3.0
 - Rails5のduplication warning対応
 - Railsのサポートバージョンを4.1以上にする
 
