@@ -3,7 +3,7 @@
 
 describe KomachiHeartbeat::HeartbeatController, type: :controller do
   describe "GET version" do
-    before { get "version", :use_route => 'ops' }
+    before { get "version", params_wrapper(use_route: 'ops') }
     subject { response }
     it { should be_success }
 
@@ -29,7 +29,7 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
 
     subject do
       # exercise
-      get "index", params
+      get "index", params_wrapper(params)
       response
     end
 
