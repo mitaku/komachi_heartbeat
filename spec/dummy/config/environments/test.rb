@@ -7,8 +7,12 @@ Dummy::Application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
-  # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
+  if Gem::Version.new(Rails.version) >= Gem::Version.new("4.2.0")
+    config.serve_static_files = true
+  else
+    # Configure static asset server for tests with Cache-Control for performance
+    config.serve_static_assets = true
+  end
 
   if Gem::Version.new(Rails.version) >= Gem::Version.new("5.0.0")
     config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=3600' }
