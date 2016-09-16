@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "memcache-client"
   s.add_development_dependency "dalli"
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails", "~> 3.0.1"
+  s.add_development_dependency "rspec-rails", "~> 3.5.1"
   s.add_development_dependency "rspec-its"
   s.add_development_dependency "spork"
   s.add_development_dependency 'rb-fsevent'

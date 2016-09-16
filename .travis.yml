@@ -3,7 +3,7 @@ rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.2
-  - 2.2.4
+  - 2.2.5
   - 2.3.0
   - ruby-head
 gemfile:
@@ -21,7 +21,6 @@ matrix:
   allow_failures:
     # NOTE: There are unstable versions
     - rvm: ruby-head
-    - gemfile: gemfiles/rails5_0.gemfile
 
   exclude:
     # NOTE: rails 5.0 requirements ruby 2.2.2+
