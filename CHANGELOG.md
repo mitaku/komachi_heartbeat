@@ -2,6 +2,9 @@
 
 ## Master
 
+## v2.3.1
+- デフォルトのフォーマットを`txt`に指定 (#19 _@sue445_)
+
 ## v2.3.0
 - Rails5のduplication warning対応
 - Railsのサポートバージョンを4.1以上にする
