@@ -44,7 +44,7 @@ module KomachiHeartbeat
 
     def db_connection_check
       connection_database_class_names.each do |klass|
-        klass.constantize.connection.execute "SELECT * FROM schema_migrations LIMIT 1"
+        klass.constantize.connection.execute "SELECT 1"
       end
     end
 
