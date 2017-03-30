@@ -11,6 +11,7 @@ gemfile:
   - gemfiles/rails4_1.gemfile
   - gemfiles/rails4_2.gemfile
   - gemfiles/rails5_0.gemfile
+  - gemfiles/rails5_1.gemfile
 before_install: gem install bundler -v 1.11.2
 script: bundle exec rspec
 branches:
@@ -22,16 +23,23 @@ matrix:
   allow_failures:
     # NOTE: There are unstable versions
     - rvm: ruby-head
+    - gemfile: gemfiles/rails5_1.gemfile # TODO: Remove this after rails5.1 is released!
 
   exclude:
     # NOTE: SystemStackError: stack level too deep when Ruby 2.4 + Rails 4.1
     - rvm: 2.4.1
       gemfile: gemfiles/rails4_1.gemfile
 
-    # NOTE: rails 5.0 requirements ruby 2.2.2+
+    # NOTE: rails 5.0+ requirements ruby 2.2.2+
     - rvm: 1.9.3
       gemfile: gemfiles/rails5_0.gemfile
     - rvm: 2.0.0
       gemfile: gemfiles/rails5_0.gemfile
     - rvm: 2.1.2
       gemfile: gemfiles/rails5_0.gemfile
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails5_1.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails5_1.gemfile
+    - rvm: 2.1.2
+      gemfile: gemfiles/rails5_1.gemfile
