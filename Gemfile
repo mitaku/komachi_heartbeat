@@ -15,3 +15,8 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
+
+# nokogiri v1.7.0 requires Ruby version >= 2.1.0
+if Gem::Version.create(RUBY_VERSION.dup) < Gem::Version.create("2.1.0")
+  gem "nokogiri", "< 1.7.0"
+end
