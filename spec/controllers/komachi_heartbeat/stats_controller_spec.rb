@@ -1,8 +1,8 @@
 RSpec.describe KomachiHeartbeat::StatsController, type: :controller do
   describe 'GET worker' do
     context 'Sidekiq' do
-      require 'sidekiq/api'
-      it 'returns full Sidekiq::Stats attributes' do
+      it 'returns full Sidekiq::Stats attributes', :skip => RUBY_VERSION < '2.0.0' do
+        require 'sidekiq/api'
         get :worker
         expect(JSON.parse(response.body)).to include(
           'processed', 'failed', 'scheduled_size', 'retry_size', 'dead_size',
