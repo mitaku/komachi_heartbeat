@@ -18,8 +18,7 @@ module KomachiHeartbeat
     end
 
     def sidekiq_stats
-      stats = Sidekiq::Stats.new
-      { enqueued: stats.enqueued, processed: stats.processed }
+      JSON.parse(Sidekiq::Stats.new.to_json)['stats']
     end
 
     def resque_stats
