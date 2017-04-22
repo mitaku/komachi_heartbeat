@@ -31,6 +31,14 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 
 - enqueued (処理待ちのQueueの数)
 - processed (完了したQueueの数)
+- failed (*sidekiq限定*)
+- scheduled_size (*sidekiq限定*)
+- retry_size (*sidekiq限定*)
+- dead_size (*sidekiq限定*)
+- processes_size (*sidekiq限定*)
+- default_queue_latency (*sidekiq限定*)
+- workers_size (*sidekiq限定*)
+
 
 を返す
 

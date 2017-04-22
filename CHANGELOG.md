@@ -2,8 +2,13 @@
 
 ## Master
 
+## v2.5.0
+- `/stats/worker`に`sidekiq`の情報を追加 (#23 _@kawakubox_)
+ - sample: `{processed: 114781, failed: 61659, scheduled_size: 0, retry_size: 0, dead_size: 0, processes_size: 0, default_queue_latency: 0, workers_size: 0, enqueued: 24}`
+- CIサポート ruby2.4, rails5.1 (#21,#22 _@sue445_)
+
 ## v2.4.0
-- DBの疎通チェックのSQLを修正 (#29 _@takanamito_)
+- DBの疎通チェックのSQLを修正 (#20 _@takanamito_)
  - 元々の目的としてDBへの接続が取れることを確認するための処理だったが`schema_migrations`が作成されないケースなどの対応のためにテーブルのチェックではなくDBへの疎通を確認する処理に変更
 
 
