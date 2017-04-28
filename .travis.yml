@@ -23,7 +23,6 @@ matrix:
   allow_failures:
     # NOTE: There are unstable versions
     - rvm: ruby-head
-    - gemfile: gemfiles/rails5_1.gemfile # TODO: Remove this after rails5.1 is released!
 
   exclude:
     # NOTE: SystemStackError: stack level too deep when Ruby 2.4 + Rails 4.1
