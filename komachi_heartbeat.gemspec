@@ -34,5 +34,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry-nav'
   s.add_development_dependency 'mock_redis'
   s.add_development_dependency 'test-unit'
-  s.add_development_dependency 'sidekiq'
+  s.add_development_dependency 'sidekiq', '< 5.0.0' # sidekiq 5.x+ requires MRI 2.2.2+
 end
