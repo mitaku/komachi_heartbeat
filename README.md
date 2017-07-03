@@ -57,33 +57,33 @@ Rails アプリケーションとDBサーバーの死活監視するためのURL
 - `application_version`
 - `application_name`
 - `db_check_enabled`
- - DBのチェックを行うかどうか
- - default: true
+  - DBのチェックを行うかどうか
+  - default: true
 - `database_class_names`
- - DBのチェックに利用するクラス名の配列
- - default: ["ActiveRecord::Base"]
+  - DBのチェックに利用するクラス名の配列
+  - default: ["ActiveRecord::Base"]
 - `redis_check_enabled`
- - Redisをチェックするかどうか
- - default: false
+  - Redisをチェックするかどうか
+  - default: false
 - `redis_servers`
- - Redisサーバーへの接続情報のハッシュの配列
- - default: [{host: "localhost", port: 6379, db: 0}]
+  - Redisサーバーへの接続情報のハッシュの配列
+  - default: [{host: "localhost", port: 6379, db: 0}]
 - `memcached_check_enabled`
- - Memcachedをチェックするかどうか
- - default: false
+  - Memcachedをチェックするかどうか
+  - default: false
 - `memcached_server_names`
- - Memcachedのサーバー名、接続ポート(省略時はデフォルトポート)をつなげた文字列の配列 e.g. ['one.example.com:11211', 'two.example.com:11211']
- - default: ['localhost']
+  - Memcachedのサーバー名、接続ポート(省略時はデフォルトポート)をつなげた文字列の配列 e.g. ['one.example.com:11211', 'two.example.com:11211']
+  - default: ['localhost']
 - `worker_stats_enabled`
- - WorkerのQueueの数をチェックするかどうか
- - default: false
+  - WorkerのQueueの数をチェックするかどうか
+  - default: false
 - `revision_path`
- - REVISION ファイルの位置
- - default: `-> { Rails.root.join("REVISION") }`
+  - REVISION ファイルの位置
+  - default: `-> { Rails.root.join("REVISION") }`
 
 ### Example
 
-```
+```rb
 Rails.application.config.heartbeat.application_name = "YOUR APP NAME"
 Rails.application.config.heartbeat.application_version = "YOUR APP version"
 ```
