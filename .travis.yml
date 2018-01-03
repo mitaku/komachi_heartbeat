@@ -6,6 +6,7 @@ rvm:
   - 2.2.5
   - 2.3.0
   - 2.4.1
+  - 2.5.0
   - ruby-head
 gemfile:
   - gemfiles/rails4_1.gemfile
@@ -27,6 +28,8 @@ matrix:
   exclude:
     # NOTE: SystemStackError: stack level too deep when Ruby 2.4 + Rails 4.1
     - rvm: 2.4.1
+      gemfile: gemfiles/rails4_1.gemfile
+    - rvm: 2.5.0
       gemfile: gemfiles/rails4_1.gemfile
 
     # NOTE: rails 5.0+ requirements ruby 2.2.2+
