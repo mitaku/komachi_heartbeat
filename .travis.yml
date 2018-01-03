@@ -31,6 +31,8 @@ matrix:
       gemfile: gemfiles/rails4_1.gemfile
     - rvm: 2.5.0
       gemfile: gemfiles/rails4_1.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/rails4_1.gemfile
 
     # NOTE: rails 5.0+ requirements ruby 2.2.2+
     - rvm: 1.9.3
