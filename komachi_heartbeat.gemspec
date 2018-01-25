@@ -17,8 +17,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 4.1.0"
 
-  # s.add_dependency "jquery-rails"
-
   s.add_development_dependency "redis"
   s.add_development_dependency "memcache-client"
   s.add_development_dependency "dalli"
