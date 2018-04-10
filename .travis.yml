@@ -13,6 +13,7 @@ gemfile:
   - gemfiles/rails4_2.gemfile
   - gemfiles/rails5_0.gemfile
   - gemfiles/rails5_1.gemfile
+  - gemfiles/rails5_2.gemfile
 before_install: gem install bundler -v 1.11.2
 script: bundle exec rspec
 branches:
@@ -47,3 +48,9 @@ matrix:
       gemfile: gemfiles/rails5_1.gemfile
     - rvm: 2.1.2
       gemfile: gemfiles/rails5_1.gemfile
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails5_2.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails5_2.gemfile
+    - rvm: 2.1.2
+      gemfile: gemfiles/rails5_2.gemfile
