@@ -57,3 +57,9 @@ matrix:
       gemfile: gemfiles/rails5_2.gemfile
     - rvm: 2.1.2
       gemfile: gemfiles/rails5_2.gemfile
+
+    # NOTE: Rails 4.2 doesn't work on MRI 2.6+
+    - rvm: 2.6.0
+      gemfile: gemfiles/rails4_2.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/rails4_2.gemfile
