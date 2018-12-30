@@ -5,7 +5,7 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
   describe "GET version" do
     before { get "version" }
     subject { response }
-    it { should be_success }
+    it { should be_successful }
 
     describe "body" do
       subject { OpenStruct.new(JSON.load(response.body)) }
@@ -39,14 +39,14 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       context "When default format" do
         let(:format) { nil }
 
-        it { should be_success }
+        it { should be_successful }
         its(:body) { should eq "heartbeat:ok" }
       end
 
       context "When svg format" do
         let(:format) { "svg" }
 
-        it { should be_success }
+        it { should be_successful }
 
         its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
         its(:body) { should include '<text x="80" y="13">ok</text>' }
@@ -72,7 +72,7 @@ describe KomachiHeartbeat::HeartbeatController, type: :controller do
       context "When svg format" do
         let(:format) { "svg" }
 
-        it { should be_success }
+        it { should be_successful }
 
         its(:body) { should start_with '<svg xmlns="http://www.w3.org/2000/svg" width="99" height="18">' }
         its(:body) { should include '<text x="80" y="13">NG</text>' }
