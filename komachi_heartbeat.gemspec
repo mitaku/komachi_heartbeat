@@ -30,7 +30,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'growl'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'pry-nav'
-  s.add_development_dependency 'mock_redis'
+  s.add_development_dependency 'mock_redis', '< 0.19.0' # mock_redis 0.19.0+ resuires MRI 2.2.0+
   s.add_development_dependency 'test-unit'
   s.add_development_dependency 'sidekiq', '< 5.0.0' # sidekiq 5.x+ requires MRI 2.2.2+
+  s.add_development_dependency 'rake', '< 12.3.0' # rake 12.3.0+ requires MRI 2.0.0+
+  s.add_development_dependency 'rb-inotify', '< 0.10.0' # rb-inotify 0.10.0+ requires MRI 2.2.0+
 end
