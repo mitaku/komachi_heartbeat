@@ -17,6 +17,7 @@ module KomachiHeartbeat
 
     def index
       db_connection_check if db_check?
+      multidb_connection_check if multidb_check?
       redis_connection_check if redis_check?
       memcached_connection_check if memcached_check?
 
@@ -50,6 +51,22 @@ module KomachiHeartbeat
 
     def connection_database_class_names
       KomachiHeartbeat.config.database_class_names.presence || []
+    end
+
+    # ---- Multi DB
+    def multidb_check?
+      !!KomachiHeartbeat.config.multidb_check_enabled
+    end
+
+    def multidb_connection_check
+      KomachiHeartbeat.config.multidb_role_and_class_names.each do |role_and_class|
+        role = role_and_class[:role]
+        klass = role_and_class[:class].constantize
+
+        ActiveRecord::Base.connected_to(role: role) do
+          klass.connection.execute('SELECT 1')
+        end
+      end
     end
 
     # ---- Redis
