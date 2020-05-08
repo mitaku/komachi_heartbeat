@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.5.8
   - 2.6.6
+  - 2.7.1
   - ruby-head
 gemfile:
   - gemfiles/rails4_2.gemfile
@@ -23,6 +24,8 @@ matrix:
   exclude:
     # NOTE: Rails 4.2 doesn't work on MRI 2.6+
     - rvm: 2.6.6
+      gemfile: gemfiles/rails4_2.gemfile
+    - rvm: 2.7.1
       gemfile: gemfiles/rails4_2.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails4_2.gemfile
