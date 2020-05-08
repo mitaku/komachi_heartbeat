@@ -8,7 +8,7 @@ gemfile:
   - gemfiles/rails5_0.gemfile
   - gemfiles/rails5_1.gemfile
   - gemfiles/rails5_2.gemfile
-before_install: gem install bundler -v 1.11.2
+before_install: gem install bundler -v '<2'
 script: bundle exec rspec
 branches:
   only:
