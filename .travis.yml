@@ -1,21 +1,16 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.2
-  - 2.2.5
-  - 2.3.0
-  - 2.4.1
-  - 2.5.0
-  - 2.6.0
+  - 2.5.8
+  - 2.6.6
+  - 2.7.1
   - ruby-head
 gemfile:
-  - gemfiles/rails4_1.gemfile
   - gemfiles/rails4_2.gemfile
   - gemfiles/rails5_0.gemfile
   - gemfiles/rails5_1.gemfile
   - gemfiles/rails5_2.gemfile
-before_install: gem install bundler -v 1.11.2
+  - gemfiles/rails6_0.gemfile
+before_install: gem install bundler -v '<2'
 script: bundle exec rspec
 branches:
   only:
@@ -28,38 +23,10 @@ matrix:
     - rvm: ruby-head
 
   exclude:
-    # NOTE: SystemStackError: stack level too deep when Ruby 2.4 + Rails 4.1
-    - rvm: 2.4.1
-      gemfile: gemfiles/rails4_1.gemfile
-    - rvm: 2.5.0
-      gemfile: gemfiles/rails4_1.gemfile
-    - rvm: 2.6.0
-      gemfile: gemfiles/rails4_1.gemfile
-    - rvm: ruby-head
-      gemfile: gemfiles/rails4_1.gemfile
-
-    # NOTE: rails 5.0+ requirements ruby 2.2.2+
-    - rvm: 1.9.3
-      gemfile: gemfiles/rails5_0.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails5_0.gemfile
-    - rvm: 2.1.2
-      gemfile: gemfiles/rails5_0.gemfile
-    - rvm: 1.9.3
-      gemfile: gemfiles/rails5_1.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails5_1.gemfile
-    - rvm: 2.1.2
-      gemfile: gemfiles/rails5_1.gemfile
-    - rvm: 1.9.3
-      gemfile: gemfiles/rails5_2.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails5_2.gemfile
-    - rvm: 2.1.2
-      gemfile: gemfiles/rails5_2.gemfile
-
     # NOTE: Rails 4.2 doesn't work on MRI 2.6+
-    - rvm: 2.6.0
+    - rvm: 2.6.6
+      gemfile: gemfiles/rails4_2.gemfile
+    - rvm: 2.7.1
       gemfile: gemfiles/rails4_2.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails4_2.gemfile
